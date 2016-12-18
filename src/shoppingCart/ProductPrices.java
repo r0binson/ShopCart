@@ -15,9 +15,9 @@ import static shoppingCart.ProductCodes.ULT_SMALL;
  *
  * @author robin
  */
-public class ProductPrices {
-	static HashMap products = new HashMap();
-	static Product product;
+public final class ProductPrices {
+	HashMap products = new HashMap();
+	Product product;
 			
 	public ProductPrices () {
 		products.put(ULT_SMALL, new Product("ult_small", "Unlimited 1GB", 24.90));
@@ -26,8 +26,8 @@ public class ProductPrices {
 		products.put(ONE_GB, new Product("1gb", "1 GB Data pack", 9.90));		
 	}
 	
-	public static double getPrice(String productCode){
-		ProductPrices.product = (Product) products.get(productCode);
-		return ProductPrices.product.getPrice();
+	public double getPrice(String productCode){
+		Product product = (Product) products.get(productCode);
+		return product.getPrice();
 	}
 }
